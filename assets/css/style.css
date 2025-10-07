@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* ---------- Primary set-up ----------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--grey850);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+main {
+    background-color: var(--grey800);
+    width: 60%;
+    max-width: 1000px;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+}
+
+/* ---------- Colors ----------*/
+
+:root {
+    /*Primary color*/
+    --grey850: #18171F;
+    --grey800: #24232C;
+    --grey700: #54535B;
+    --grey600: #817D92;
+    --grey200: #E6E5EA;
+
+    /*Secondary colors*/
+    --orange: #FB7C58;
+    --red: #F64A4A;
+    --green: #A4FFAF;
+}
+
+
+/*Backgrounds*/
+.bg-grey850 {background-color: var(--grey850);}
+.bg-grey800 {background-color: var(--grey800);}
+.bg-green {background-color: var(--green);}
+
+
+/* ---------- Typos ----------*/
+
+* {
+    font-family: "Space Mono", monospace;
+    color: var(--white);
+}
+
+h1 {
+    color: var(--grey600);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
