@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 /* ---------- Primary set-up ----------*/
 
@@ -21,11 +21,9 @@ body {
 main {
     background-color: var(--grey800);
     width: 60%;
-    max-width: 1000px;
-    padding: 1.5rem;
-    border-radius: 1rem;
+    max-width: 600px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-bottom: 2rem;
 }
 
@@ -55,12 +53,126 @@ main {
 /* ---------- Typos ----------*/
 
 * {
-    font-family: "Space Mono", monospace;
-    color: var(--white);
+    font-family: "JetBrains Mono", monospace;
+    color: var(--grey200);
 }
 
 h1 {
     color: var(--grey600);
     margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.password {
+    color: var(--grey700);
+    font-size: 2.2rem;
+}
+
+.lightgrey {
+    color: var(--grey200);
+    font-size: 1.1rem;
+}
+
+.strength {
+    color: var(--grey700);
+    font-size: 1rem;
+}
+
+.green {
+    color: var(--green);
+    font-size: 2rem;
+}
+
+/* ---------- Password  ----------*/
+
+.password-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.green-icon {
+    width: 25px;
+    height: 33px;
+}
+
+/* ---------- Blackline  ----------*/
+
+.blackline {
+    height: 3rem;
+    background-color: var(--grey850);
+}
+
+/* ---------- Input Container (Second Box) ----------*/
+
+.input-container {
+    padding: 1.5rem;
+}
+
+/* ---------- Character Lenght ----------*/
+
+.length-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#valeur-range {
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+/* ---------- Checkboxes ----------*/
+
+label {
     margin-bottom: 1rem;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 1rem;
+    width: 16px;
+    height: 16px;
+}
+
+/* ---------- Strength ----------*/
+
+.strength-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--grey850);
+    height: 4rem;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* ---------- Generate Button ----------*/
+
+button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--green);
+    height: 4rem;
+    padding: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+    color: var(--grey800);
+    font-size: 1rem;
+}
+
+button img {
+    margin-left: 1rem;
 }
