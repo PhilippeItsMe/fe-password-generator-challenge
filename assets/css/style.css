@@ -61,7 +61,7 @@ h1 {
     color: var(--grey600);
     font-size: 1.5rem;
     font-weight: 500;
-    margin-top: 1rem;
+    margin-top: 2rem;
     margin-bottom: 3rem;
 }
 
@@ -241,5 +241,25 @@ button:hover {
 
 button:hover img {
     filter: brightness(0) saturate(100%) invert(85%) sepia(26%) saturate(1475%) hue-rotate(79deg) brightness(108%) contrast(97%);
+}
+
+/* ---------- Responsivness ----------*/
+
+@media screen and (max-width: 590px) {
+    main {
+    width: 80%;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    main {
+    width: 90%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    main {
+    width: 100%;
+    }
 }
 
