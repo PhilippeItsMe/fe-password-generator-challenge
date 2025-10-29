@@ -100,6 +100,10 @@ h1 {
     height: 33px;
 }
 
+.green-icon:hover {
+   cursor: pointer;
+}
+
 /* ---------- Blackline  ----------*/
 
 .blackline {
@@ -234,9 +238,10 @@ button img {
 }
 
 button:hover {
-     background-color: var(--grey800);
-     border: 2px solid var(--green);
-     color: var(--green);
+    background-color: var(--grey800);
+    border: 2px solid var(--green);
+    color: var(--green);
+    cursor: pointer;
 }
 
 button:hover img {

@@ -1,4 +1,6 @@
-//------ Slider Color ------ //
+//------------ Slider ------------ //
+
+// Slider color
 
 function updateSliderBackground(slider) {
     const value = slider.value;
@@ -10,7 +12,7 @@ function updateSliderBackground(slider) {
     slider.style.background = `linear-gradient(to right, #A4FFAF 0%,#A4FFAF ${percentage}%, #18171F ${percentage}%, #18171F 100%)`;
 }
 
-//------ Slider Value ------ //
+// Slider Value
 
 function updateSliderValue(slider) {
     const sliderValue = document.getElementById('slider-value');
@@ -18,7 +20,7 @@ function updateSliderValue(slider) {
     sliderValue.textContent = value;
 }
 
-//------ Update Slider Color & Value ------ //
+// Slider Update
 
 const slider = document.getElementById('valeur-range');
 slider.addEventListener('input', function() {
@@ -27,7 +29,7 @@ slider.addEventListener('input', function() {
     updatePasswordOptions();
 })
 
-//------ Password variables ------ //
+//------------ Password  ------------ //
 
 //Get the DOM value
 
@@ -67,7 +69,7 @@ lowercase.addEventListener('change', updatePasswordOptions);
 numbers.addEventListener('change', updatePasswordOptions);
 symbols.addEventListener('change', updatePasswordOptions);
 
-//------ Password generation ------ //
+// Password generation
 
 const characterSet = {
     uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -113,14 +115,80 @@ function generatePassword () {
     return generatedPassword;
 }
 
-//------ Password display ------ //
+// Password quality
+
+const c1 = document.getElementById('c1');
+const c2 = document.getElementById('c2');
+const c3 = document.getElementById('c3');
+const c4 = document.getElementById('c4');
+
+function passwordQuality () {
+    let quality = 0;
+
+    if (passwordOptions.length > 5) {
+        quality += 1
+    }
+    if (passwordOptions.uppercase) {
+        quality += 1
+    }
+    if (passwordOptions.lowercase
+    ) {
+        quality += 1
+    }
+    if (passwordOptions.numbers) {
+        quality += 1
+    }
+    if (passwordOptions.symbols) {
+        quality += 1
+    }
+
+    return quality
+}
+
+// Password & quality display
 
 generate.addEventListener('click', function() {
     const newpassword = generatePassword ();
     password.textContent = newpassword;
+    const quality = passwordQuality();
+
+[c1, c2, c3, c4].forEach(el => {
+    el.style.backgroundColor = ''; 
+    el.style.borderColor = '';
+});
+
+    if (quality >= 1) {
+        c1.style.backgroundColor = 'var(--orange)';
+        c1.style.borderColor = 'var(--orange)';
+    }
+    if (quality >= 2) {
+        c2.style.backgroundColor = 'var(--orange)';
+        c2.style.borderColor = 'var(--orange)';
+    }
+    if (quality >= 3) {
+        c3.style.backgroundColor = 'var(--orange)';
+        c3.style.borderColor = 'var(--orange)';
+    }
+    if (quality >= 4) {
+        c4.style.backgroundColor = 'var(--orange)';
+        c4.style.borderColor = 'var(--orange)';
+    }
 })
 
 
+//------------ Copy & Paste ------------ //
+
+const copy = document.getElementById('copy');
+copy.addEventListener('click', function(){
+    textToCopy = password.textContent;
+    try {
+        navigator.clipboard.writeText(textToCopy);
+        console.log('Texte copié dans le presse-papier');
+        } catch (err) {
+            console.error('Erreur copy:', err);
+        }
+        return;
+    })
 
 
 
