@@ -38,6 +38,7 @@ main {
     --grey200: #E6E5EA;
 
     /*Secondary colors*/
+    --yellow: #F8CD65;
     --orange: #FB7C58;
     --red: #F64A4A;
     --green: #A4FFAF;
@@ -196,7 +197,21 @@ label {
 }
 
 
-/* ---------- Strength ----------*/
+/* ---------- Strength & Error messages ----------*/
+
+#message-error {
+    color: var(--red);
+    text-align: end;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    visibility: hidden;
+}
+
+#security-level {
+    font-size: 1.5rem;
+    visibility: hidden;
+    padding-right: 0.5rem;
+}
 
 .strength-container {
     display: flex;
@@ -206,10 +221,16 @@ label {
     background-color: var(--grey850);
     height: 4rem;
     padding: 1rem;
-    margin-top: 2rem;
+    
 }
 
-#c1, #c2, #c3, #c4 {
+.indicator-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#c1, #c2, #c3, #c4, #c5  {
     width: 0.6rem;
     height: 1.8rem;
     border: 2px solid var(--grey200);
@@ -234,7 +255,7 @@ button {
 }
 
 button img {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
 }
 
 button:hover {

@@ -35,6 +35,8 @@ slider.addEventListener('input', function() {
 
 const password = document.getElementsByClassName('password')[0];
 const generate = document.getElementById('generate');
+const message = document.getElementById('message-error');
+const security_level = document.getElementById('security-level');
 
 const uppercase = document.getElementById('uppercase');
 const lowercase = document.getElementById('lowercase');
@@ -148,32 +150,75 @@ function passwordQuality () {
 // Password & quality display
 
 generate.addEventListener('click', function() {
-    const newpassword = generatePassword ();
-    password.textContent = newpassword;
-    const quality = passwordQuality();
+    [c1, c2, c3, c4].forEach(el => {
+        el.style.backgroundColor = ''; 
+        el.style.borderColor = '';
+    })
+    message.style.visibility = "hidden";
+    security_level.style.visibility = "hidden";
 
-[c1, c2, c3, c4].forEach(el => {
-    el.style.backgroundColor = ''; 
-    el.style.borderColor = '';
+    if (passwordOptions.length <= 0) {
+            message.textContent = "Min. one character";
+            message.style.visibility = "visible";
+            return;
+    } 
+    
+    if (!passwordOptions.uppercase && 
+        !passwordOptions.lowercase &&
+        !passwordOptions.numbers &&
+        !passwordOptions.symbols) {
+            message.textContent = "Min. on character type";
+            message.style.visibility = "visible";
+            return;
+        }
+    else {  
+        const newpassword = generatePassword ();
+        password.textContent = newpassword;
+    
+        const quality = passwordQuality();
+
+        if (quality == 1) {
+            security_level.style.color = 'var(--red)';
+            security_level.textContent = "TOO WEAK!"
+            security_level.style.visibility = "visible";
+            c1.style.backgroundColor = 'var(--red)';
+            c1.style.borderColor = 'var(--red)';
+        }
+        if (quality == 2) {
+            security_level.style.color = 'var(--orange)';
+            security_level.textContent = "WEAK"
+            security_level.style.visibility = "visible";
+            c1.style.backgroundColor = 'var(--orange)';
+            c1.style.borderColor = 'var(--orange)';
+            c2.style.backgroundColor = 'var(--orange)';
+            c2.style.borderColor = 'var(--orange)';
+        }
+        if (quality == 3) {
+            security_level.style.color = 'var(--yellow)';
+            security_level.textContent = "MEDIUM"
+            security_level.style.visibility = "visible";
+            c1.style.backgroundColor = 'var(--yellow)';
+            c1.style.borderColor = 'var(--yellow)';
+            c2.style.backgroundColor = 'var(--yellow)';
+            c2.style.borderColor = 'var(--yellow)';
+            c3.style.backgroundColor = 'var(--yellow)';
+            c3.style.borderColor = 'var(--yellow)';
+        }
+        if (quality >= 4) {
+            security_level.style.color = 'var(--green)';
+            security_level.textContent = "STRONG"
+            security_level.style.visibility = "visible";
+            c1.style.backgroundColor = 'var(--green)';
+            c1.style.borderColor = 'var(--green)';
+            c2.style.backgroundColor = 'var(--green)';
+            c2.style.borderColor = 'var(--green)';
+            c3.style.backgroundColor = 'var(--green)';
+            c3.style.borderColor = 'var(--green)';
+            c4.style.backgroundColor = 'var(--green)';
+            c4.style.borderColor = 'var(--green)';
+        }
+    }
 });
-
-    if (quality >= 1) {
-        c1.style.backgroundColor = 'var(--orange)';
-        c1.style.borderColor = 'var(--orange)';
-    }
-    if (quality >= 2) {
-        c2.style.backgroundColor = 'var(--orange)';
-        c2.style.borderColor = 'var(--orange)';
-    }
-    if (quality >= 3) {
-        c3.style.backgroundColor = 'var(--orange)';
-        c3.style.borderColor = 'var(--orange)';
-    }
-    if (quality >= 4) {
-        c4.style.backgroundColor = 'var(--orange)';
-        c4.style.borderColor = 'var(--orange)';
-    }
-})
 
 
 //------------ Copy & Paste ------------ //
